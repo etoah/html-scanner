@@ -2,10 +2,10 @@
 
 /*
   	this.contentHandler = {
-		startTagHandler:   function (sTagName, oAttrs) {},
-		onEndTagHandler:     function (sTagName) {},
-		onCharactersHandler:		function (s) {},
-		onCommentHandler:		function (s) {}
+		startTag:   function (sTagName, oAttrs) {},
+		endTag:     function (sTagName) {},
+		characters:		function (s) {},
+		comment:		function (s) {}
 	}
 */
 var AST = require('./AST');
@@ -14,7 +14,7 @@ const START_TAG_RE = /^<([^>\s\/]+)((\s+[^=>\s]+(\s*=\s*((\"[^"]*\")|(\'[^']*\')
 const	END_TAG_RE = /^<\/([^>\s]+)[^>]*>/m;
 const ATTR_RE = /([^=\s]+)(\s*=\s*((\"([^"]*)\")|(\'([^']*)\')|[^>\s]+))?/gm;
 
-class SimpleHtmlParser
+class HtmlScanner
 {
 	constructor(){
 		this.contentHandler = {
@@ -165,7 +165,7 @@ class SimpleHtmlParser
 	 * @param {string} type : comment, startTag, endTag, characters
 	 * @param {function} handler
 	 * 
-	 * @memberOf SimpleHtmlParser
+	 * @memberOf HtmlScanner
 	 */
 	on(type, handler){
 		this.contentHandler[type+'Handlers'].push(handler);
@@ -187,4 +187,4 @@ class SimpleHtmlParser
 }
 
 
-module.exports = SimpleHtmlParser;
+module.exports = HtmlScanner;

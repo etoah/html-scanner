@@ -1,6 +1,6 @@
 {
-  "name": "simplehtmlparser",
-  "version": "1.0.0",
+  "name": "html-scanner",
+  "version": "0.0.1",
   "description": "HTML Parser in JS for Node and Browsers",
   "main": "src/index.js",
   "scripts": {

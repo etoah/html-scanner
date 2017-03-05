@@ -1,9 +1,9 @@
-const SimpleHtmlParser =new require('../');
+const HtmlScanner =new require('../');
 
-describe('simplehtmlparser', () => {
+describe('HtmlScanner', () => {
 
     it('should be parse attr', () => {
-        var  instance =new SimpleHtmlParser();
+        var  instance =new HtmlScanner();
        var result = instance.parse(`<div id = "idstr" title = "这是个title">test</div>`);
         result.name.should.be.eql('div');
         result.attr.id.should.be.eql("idstr");
@@ -12,7 +12,7 @@ describe('simplehtmlparser', () => {
     });
 
     it('should be parse nest tag', () => {
-        var  instance =new SimpleHtmlParser();
+        var  instance =new HtmlScanner();
        var result = instance.parse(`
        <div>
             <div id='idstr' >
@@ -33,7 +33,7 @@ describe('simplehtmlparser', () => {
     });
 
      it('UTF8 should be ok', () => {
-        var  instance =new SimpleHtmlParser();
+        var  instance =new HtmlScanner();
        var result = instance.parse(`
        <div>
             <div id='idstr' >
@@ -48,7 +48,7 @@ describe('simplehtmlparser', () => {
     });
 
      it('invisible  char  should be discard', () => {
-        var  instance =new SimpleHtmlParser();
+        var  instance =new HtmlScanner();
        var result = instance.parse(`
        <div>
             abc     
