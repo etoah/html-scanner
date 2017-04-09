@@ -1,15 +1,16 @@
 
 var webpack = require('webpack');
+var package = require('./package.json')
 
 var config = {
-  entry: './src/sequence.js',
+  entry: package.main,
   module: {
     loaders: [
       { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ }
     ]
   },
   output: {
-     filename: './dist/sequence.js'
+     filename: `./dist/${package.name}.js`
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),

@@ -2,7 +2,7 @@
   "name": "html-scanner",
   "version": "0.0.1",
   "description": "HTML Parser in JS for Node and Browsers",
-  "main": "src/index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "node_modules/.bin/mocha test/**/*.test.js   -r test/env   --recursive",
     "lint": "eslint src",
@@ -10,6 +10,10 @@
   },
   "author": {
     "name": "lucien"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/etoah/html-scanner.git"
   },
   "license": "ISC",
   "devDependencies": {
@@ -25,6 +29,6 @@
   },
   "eslintConfig":{
   "parser": "babel-eslint",
-  "extends": ["eslint:recommended"]
+  "extends": ["tencentvfe"]
   }
 }
